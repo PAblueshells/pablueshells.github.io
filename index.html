@@ -67,10 +67,12 @@
       $(".back").fadeIn();
     }
     function home(){
-      $(".more").hide();
-      $(".description").fadeIn();
-      $(".main").fadeIn();
-      $(".andover-logo").fadeIn();
+      $(".back").hide();
+      $(".more").slideUp(function(){
+        $(".description").slideDown();
+        $(".main").fadeIn();
+        $(".andover-logo").fadeIn();
+      });
     }
   </script>
   <title>Blueshells</title>
