@@ -1,9 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <style>
+    body, a, a:hover{
+      background-color: #0d47a1;
+      color: #ffffff;
+    }
+
+    h1, h2, h3, h4, h5, h6, .mono, a {
+      font-family: 'Source Code Pro', monospace;
+    }
+    p {
+      font-family: 'Source Sans Pro', sans-serif;
+    }
+    body {
+      margin-top: 5%;
+    }
+    .andover-logo{
+      height: 36px;
+    }
+    .title {
+      font-size: 56px;
+      height: 56px;
+    }
+    hr {
+      height: 3px;
+      color: #ffffff;
+      background-color: #ffffff;
+      border: none;
+    }
+    .description {
+      font-size: 22px;
+    }
+    .more {
+      display: none;
+    }
+  </style>
+  <script>
+    function show(element){
+      $(".central").hide();
+      $(".main").fadeOut();
+      $(element).fadeIn();
+    }
+    function home(){
+      $(".more").hide();
+      $(".main").fadeIn();
+    }
+  </script>
   <title>Blueshells</title>
 </head>
 <body>
-  <h1>Blueshells</h1>
+  <div class="container">
+    <div class="flex">
+      <div>
+        <div class="title">
+          <h1 class="main">blueshell$</h1>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="main central">
+              <p class="description">
+                The competitive cybersecurity team at Phillips Academy Andover.
+                <br><small style="font-size: 16px;"><span onclick='show("#team")' class="mono">The Team</span>
+                &nbsp;|| <a href="#" class="mono">Join the Club</a>
+                &nbsp;|| <a href="#" class="mono">Slack</a>
+                &nbsp;|| <span onclick='show("#schedule")' class="mono">Schedule</span></small>
+              </p>
+            </div>
+            <div id="schedule" class="more">
+                <span class="mono" onclick="home()">(back)</span>
+                <h4>schedule></h4>
+                <p><strong>hackoff:</strong> the hackoff will take place on Saturday, May 20th at 7:30pm in George Washington Hall. Review materials are available here.</p>
+            </div>
+            <div id="team" class="more">
+                <span class="mono" onclick="home()">(back)</span>
+                <h4>team></h4>
+                <p><i>The team has not yet been formed.</i></p>
+            </div>
+          </div>
+        </div>
+        <br>
+          <a href="https://www.andover.edu" class="main">
+            <img src="assets/andover.png" class="andover-logo">
+          </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
