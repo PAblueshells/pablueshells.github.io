@@ -51,30 +51,44 @@
     }
   </style>
   <script>
-    function show(element){
-      home();
-      if(element == ".schedule"){
-        $(".description").slideUp();
-        $(".andover-logo").fadeOut(function(){
-          $(".back").fadeIn();
-        });
-        $(".schedule").slideDown();
-        return;
-      }
-      $(".more").hide();
-      $(".central").hide();
-      $(".main").hide();
-      $(element).fadeIn();
-      $(".back").fadeIn();
-    }
-    function home(){
-      $(".back").hide();
-      $(".more").slideUp(function(){
-        $(".description").slideDown();
-        $(".main").fadeIn();
-        $(".andover-logo").fadeIn();
+  var current = "home";
+
+  function showSchedule(){
+    show(".schedule");
+  }
+
+  function show(element){
+    if(element == ".schedule" && current == "home"){
+      current = element;
+      $(".description").slideUp();
+      $(".andover-logo").fadeOut(function(){
+        $(".back").fadeIn();
       });
+      $(".schedule").slideDown();
+      return;
     }
+    if(element == ".schedule"){
+      home(showSchedule);
+      return;
+    }
+    $(".more").hide();
+    $(".central").hide();
+    $(".main").hide();
+    $(element).fadeIn();
+    $(".back").fadeIn();
+    current = element;
+  }
+
+  function home(callback){
+    current = "home";
+    $(".back").hide();
+    $(".more").slideUp(function(){
+      $(".description").slideDown();
+      $(".main").fadeIn();
+      $(".andover-logo").fadeIn();
+      callback();
+    });
+  }
   </script>
   <title>Blueshells</title>
 </head>
@@ -142,7 +156,7 @@
             <small style="font-size: 16px;"><span onclick='show("#team")' class="mono">The Team</span><br>
             &nbsp;<br> <a href="https://goo.gl/forms/GAqhgCntbL6do8lL2" class="mono">Join the Club</a><br>
             &nbsp;<br> <a href="https://pablueshells.slack.com" class="mono">Slack</a><br>
-            &nbsp;<br> <span onclick='show(".schedule")' class="mono">Schedule</span></small>
+            &nbsp;<br> <span onclick='showSchedule()' class="mono">Schedule</span></small>
           </div>
         </div>
         <br>
